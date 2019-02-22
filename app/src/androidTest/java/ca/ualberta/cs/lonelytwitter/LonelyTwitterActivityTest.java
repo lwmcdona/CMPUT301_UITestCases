@@ -74,7 +74,7 @@ public class LonelyTwitterActivityTest extends ActivityTestRule<LonelyTwitterAct
         solo.clickInList(0);
         solo.assertCurrentActivity("Wrong Activity", EditTweetActivity.class);
         assertTrue(solo.waitForText("TextView"));
-
+        //going back to the main activity
         solo.goBack();
         solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
     }
