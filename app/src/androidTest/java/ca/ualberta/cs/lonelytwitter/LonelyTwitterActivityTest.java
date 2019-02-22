@@ -53,8 +53,8 @@ public class LonelyTwitterActivityTest extends ActivityTestRule<LonelyTwitterAct
 
         assertTrue(solo.waitForText("Test Tweet!", 1, 2000));
 
-        //solo.clickOnButton("Clear");
-        //assertFalse(solo.searchText("Test Tweet!"));
+        solo.clickOnButton("Clear");
+        assertFalse(solo.searchText("Test Tweet!"));
     }
     @Test
     public void clickTweetList(){
@@ -67,16 +67,16 @@ public class LonelyTwitterActivityTest extends ActivityTestRule<LonelyTwitterAct
         solo.clickOnButton("Save");
         solo.waitForText("Test Tweet", 1, 2000);
 
-       // final ListView oldTweetsList = activity.getOldTweetsList();
-        //Tweet tweet = (Tweet) oldTweetsList.getItemAtPosition(0);
-       // assertEquals("Test Tweet!", tweet.getMessage());
+        final ListView oldTweetsList = activity.getOldTweetsList();
+        Tweet tweet = (Tweet) oldTweetsList.getItemAtPosition(0);
+        assertEquals("Test Tweet!", tweet.getMessage());
 
-        //solo.clickInList(0);
-        //solo.assertCurrentActivity("Wrong Activity", EditTweetActivity.class);
-        //assertTrue(solo.waitForText("TextView"));
+        solo.clickInList(0);
+        solo.assertCurrentActivity("Wrong Activity", EditTweetActivity.class);
+        assertTrue(solo.waitForText("TextView"));
 
-        //solo.goBack();
-        //solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
+        solo.goBack();
+        solo.assertCurrentActivity("Wrong Activity", LonelyTwitterActivity.class);
     }
 
     @After
